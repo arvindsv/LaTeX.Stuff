@@ -25,10 +25,11 @@
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
 %_% OTHERPACKAGES
 
+\usepackage{lettrine}
+
 \newcommand{\showpart}[1]{\noindent\input{parts/#1}}
 \newcommand{\HyperRef}{\href{http://www.tug.org/applications/hyperref/manual.html}{hyperref}\ }
 \newcommand{\FontSpec}{\href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=fontspec}{fontspec}\ }
-
 \newcommand{\red}[1]{{\addfontfeature{Colour=FF0000}#1}}
 
 \begin{document}
@@ -88,7 +89,7 @@ difference between:
 {\Huge {\addfontfeature{Ligatures=Rare} \ligs}}}
 %_% LIGATURES
 
-This was generated using: \showpart{LIGATURES}
+This was typeset using: \showpart{LIGATURES}
 
 \section{Mapping}\label{fontspec-mapping}
 
@@ -102,7 +103,7 @@ With tex-text mapping & {\addfontfeature{Mapping=tex-text} No---No" '' ``}
 \end{tabular}
 %_% MAPPING
 
-This was generated using: \showpart{MAPPING}
+This was typeset using: \showpart{MAPPING}
 
 \section{More font features exposed}
 
@@ -118,7 +119,17 @@ More ligatures & {\Huge {\aff{Ligatures=Historical}„\red{st}“ „\red{ct}“
 \end{tabular}
 %_% FONTFEATURES
 
-This was generated using: \showpart{FONTFEATURES}
+This was typeset using: \showpart{FONTFEATURES}
+
+\section{Drop caps}
+
+%_% DROPCAP
+\renewcommand{\LettrineFontHook}{\color{red!50!white}}
+\lettrine[lines=3,loversize=0.2,findent=-2ex,nindent=1ex,slope=1.5ex]{A}{s} you can see, using the
+\href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=lettrine}{lettrine} package, the first letter of this paragraph has been enlarged to ``drop'' down three lines. Drop caps are often seen at the beginning of novels, where the top of the first letter of the first word lines up with the top of the first sentence and drops down to the four or fifth sentence.
+%_% DROPCAP
+
+This was typeset using: \showpart{DROPCAP}
 
 \chapter{Miscallaneous}
 
