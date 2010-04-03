@@ -22,11 +22,14 @@
 %_% OTHERPACKAGES
 \usepackage{fontspec}
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
-\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
 %_% OTHERPACKAGES
 
 \newcommand{\showpart}[1]{\noindent\input{parts/#1}}
 \newcommand{\HyperRef}{\href{http://www.tug.org/applications/hyperref/manual.html}{hyperref}\ }
+\newcommand{\FontSpec}{\href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=fontspec}{fontspec}\ }
+
+\newcommand{\red}[1]{{\addfontfeature{Colour=FF0000}#1}}
 
 \begin{document}
 
@@ -61,16 +64,61 @@ instead of color codes are also needed by the \HyperRef package used below.
 
 \showpart{XETEXPACKAGES}
 
-\section{Fonts}
+\section{Font setup}
 
-I'm using the wonderful \href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=fontspec}{fontspec} package with
+I'm using the wonderful \FontSpec package with
 it's brilliant \href{http://tug.ctan.org/tex-archive/macros/xetex/latex/fontspec/fontspec.pdf}{documentation}. Also,
 using the \HyperRef package to provide all the links you see in this document.
 
 The main font being used is \href{http://linuxlibertine.sourceforge.net/}{Linux Libertine}. I'll explain what the
-Mapping option is doing there \ref{fontspec-mapping}{soon}.
+Mapping option is for in \autoref{fontspec-mapping}.
 
 \showpart{OTHERPACKAGES}
+
+\chapter{More about fonts}
+
+\section{Ligatures}
+
+\FontSpec understands OpenType \href{http://en.wikipedia.org/wiki/Typographic\_ligature}{ligatures}. Look at the
+difference between:
+
+%_% LIGATURES
+{\newcommand{\ligs}{O\red{ft}en o\red{ffi}ce o\red{ff}er \red{fj}ord.}
+{\Huge {\addfontfeature{Ligatures=NoCommon} \ligs}} \\
+{\Huge {\addfontfeature{Ligatures=Rare} \ligs}}}
+%_% LIGATURES
+
+This was generated using: \showpart{LIGATURES}
+
+\section{Mapping}\label{fontspec-mapping}
+
+As you can see below, with the tex-text mapping all the usual quotation marks and the
+\href{http://en.wikipedia.org/wiki/Dash#Em\_dash}{em-dashes} are automatically used.
+
+%_% MAPPING
+\begin{tabular}{l || l}
+No tex-text mapping & {\addfontfeature{Mapping=} No---No" '' ``} \\
+With tex-text mapping & {\addfontfeature{Mapping=tex-text} No---No" '' ``}
+\end{tabular}
+%_% MAPPING
+
+This was generated using: \showpart{MAPPING}
+
+\section{More font features exposed}
+
+%_% FONTFEATURES
+\newcommand{\aff}{\addfontfeature}
+\begin{tabular}{l || l}
+Qu has a ligature & {\Huge \red{Qu}iet \red{Q}antas} \\
+Slashed zero. New style & {\Huge {\aff{Numbers=SlashedZero} 0123456789}} \\
+Old style numbers & {\Huge {\aff{Numbers=OldStyle} 0123456789}} \\
+Fractions & {\Huge {\aff{Fractions=On} 1/3} vs 1/3} \\
+Superiors & {\Huge {\aff{VerticalPosition=Superior}1234567890 Libertine}} \\
+More ligatures & {\Huge {\aff{Ligatures=Historical}„\red{st}“ „\red{ct}“}}
+\end{tabular}
+%_% FONTFEATURES
+
+This was generated using: \showpart{FONTFEATURES}
 
 \chapter{Miscallaneous}
 
