@@ -2,7 +2,6 @@
 
 trap 'clean' EXIT QUIT
 
-annotated_parts="HEADER BOO"
 filename_without_extension="cheatsheet"
 
 tmpdir="parts"
@@ -14,6 +13,7 @@ function clean
 clean
 mkdir "$tmpdir"
 
+annotated_parts=$(grep -o '\\showpart{[^}]*}' "$filename_without_extension.tex" | sed 's#\\showpart{\([^}]*\)}.*#\1#' | sort | uniq)
 for part in $annotated_parts
 do
     source-highlight -s latex -f latexcolor --regex-range="%_%.*$part" \
