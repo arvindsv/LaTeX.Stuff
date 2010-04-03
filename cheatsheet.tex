@@ -1,0 +1,37 @@
+%_% These lines starting with %_% are used as annotations for GNU source-highlight package to be able to selectively
+%_% convert parts of this file into markup. These can be removed before using this file.
+%_% Try: grep -v '^%_%' cheatsheet.tex
+%_% Start HEADER
+\documentclass[a4paper,extrafontsizes,12pt,article]{memoir}
+\chapterstyle{ell}
+\pagestyle{empty}
+%_% End HEADER
+
+\setlength\parindent{0in}
+\setlength\parskip{1ex}
+
+\newcommand{\showpart}[1]{\noindent\input{parts/#1}}
+
+\usepackage[dvipsnames,usenames]{color}
+
+\begin{document}
+
+\chapter{About setup}
+
+\showpart{HEADER}
+
+\chapter{Miscallaneous}
+
+\section{stackrel - One above another}
+
+You can put one element above another by using stackrel as mentioned here:
+http://www.uz.ac.zw/science/maths/latex/stackrel.html
+
+Do this: \showpart{BOO}
+
+It looks like this:
+%_% BOO
+H$_2$CO$_3$ $\stackrel{heat}{\longrightarrow}$ H$_2$O + CO$_2$
+%_% BOO
+
+\end{document}

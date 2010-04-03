@@ -1,0 +1,14 @@
+include "latexcolor.outlang"
+
+nodoctemplate
+"% Generator: GNU source-highlight, by Lorenzo Bettini, http://www.gnu.org/software/src-highlite
+$header
+\noindent\framebox{%
+  \begin{minipage}{\linewidth}
+    \noindent\texttt{\scriptsize{"
+"\\[-2.8\baselineskip]}%
+}%
+\end{minipage}
+}%
+$footer"
+end
