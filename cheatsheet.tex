@@ -13,10 +13,20 @@
 \setlength\parskip{1ex}
 %_% PARAGRAPHSTYLES
 
-\newcommand{\showpart}[1]{\noindent\input{parts/#1}}
+%_% XETEXPACKAGES
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[dvipsnames,usenames]{xcolor}
+%_% XETEXPACKAGES
 
-\usepackage[dvipsnames,usenames]{color}
+%_% OTHERPACKAGES
+\usepackage{fontspec}
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+%_% OTHERPACKAGES
+
+\newcommand{\showpart}[1]{\noindent\input{parts/#1}}
+\newcommand{\HyperRef}{\href{http://www.tug.org/applications/hyperref/manual.html}{hyperref}\ }
 
 \begin{document}
 
@@ -31,6 +41,9 @@ bianchi, is described in the
 The pagestyle is empty as I don't want any page numbers. The aliaspagestyle is sort of a hack so that even
 chapter-opening pages don't have page numbers.
 
+You might notice that there is a difference in the side margins between pages. This is because of the ``twoside'' option
+mentioned above. This makes \LaTeX\ setup the pages for two-side printing by flipping the margins on even and odd pages.
+
 \showpart{HEADER}
 
 \section{Paragraph styling}
@@ -39,6 +52,25 @@ The default typesetting of paragraphs in \LaTeX\ is by indentation at the beginn
 to no indent and then a bigger gap between the paragraphs, by modifying the \textbackslash{}parskip and \textbackslash{}parindent lengths.
 
 \showpart{PARAGRAPHSTYLES}
+
+\section{\XeTeX\ packages}
+
+Since \XeTeX\ is being used, these three packages are normally included to be able to make the use of Unicode and some additional
+functionality easier. The options passed to \href{http://www.ukern.de/tex/xcolor.html}{xcolor} to be able to use of names
+instead of color codes are also needed by the \HyperRef package used below.
+
+\showpart{XETEXPACKAGES}
+
+\section{Fonts}
+
+I'm using the wonderful \href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=fontspec}{fontspec} package with
+it's brilliant \href{http://tug.ctan.org/tex-archive/macros/xetex/latex/fontspec/fontspec.pdf}{documentation}. Also,
+using the \HyperRef package to provide all the links you see in this document.
+
+The main font being used is \href{http://linuxlibertine.sourceforge.net/}{Linux Libertine}. I'll explain what the
+Mapping option is doing there \ref{fontspec-mapping}{soon}.
+
+\showpart{OTHERPACKAGES}
 
 \chapter{Miscallaneous}
 
