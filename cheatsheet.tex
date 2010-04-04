@@ -26,11 +26,16 @@
 %_% OTHERPACKAGES
 
 \usepackage{lettrine}
+\usepackage{tikz}
 
 \newcommand{\showpart}[1]{\noindent\input{parts/#1}}
 \newcommand{\HyperRef}{\href{http://www.tug.org/applications/hyperref/manual.html}{hyperref}\ }
 \newcommand{\FontSpec}{\href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=fontspec}{fontspec}\ }
-\newcommand{\red}[1]{{\addfontfeature{Colour=FF0000}#1}}
+\newcommand{\TikZ}{\href{http://www.texample.net/tikz/examples/}{PGF/TikZ}\ }
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\green}[1]{{\color{green}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
 
 \begin{document}
 
@@ -130,6 +135,23 @@ This was typeset using: \showpart{FONTFEATURES}
 %_% DROPCAP
 
 This was typeset using: \showpart{DROPCAP}
+
+\section{Font transparency}
+
+%_% FONTTRANSPARENCY
+\begin{tikzpicture}
+   \node[scale=3,opacity=0.6]{\red{\HUGE W}};
+   \node[scale=3,opacity=0.7,xshift=3ex]{\blue{\HUGE S}};
+   \node[scale=3,opacity=0.6,xshift=5ex]{\color{yellow}{\HUGE P}};
+   \node[scale=3,opacity=0.4,xshift=7.5ex]{\green{\HUGE R}};
+\end{tikzpicture}
+%_% FONTTRANSPARENCY
+
+\FontSpec supports font transparency, but it needs some support from the font, apparently. So, enter the brilliant \TikZ
+package, with a \href{http://www.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{very
+comprehensive manual}.
+
+This was typeset using: \showpart{FONTTRANSPARENCY}
 
 \chapter{Miscallaneous}
 
