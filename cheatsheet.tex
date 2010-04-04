@@ -39,12 +39,23 @@
 
 \begin{document}
 
+%_% TITLE
+\begin{minipage}{\textwidth}
+\title{Playing around with \LaTeX} \date{} \author{Aravind SV <aravind.sv@gmail.com>}
+\maketitle
+\begin{abstract}
+This is a bit of a cheatsheet as well as a starting template for some of my \LaTeX\ documents. This is not a comprehensive guide to anything in \LaTeX, but will provide external references to further documentation wherever possible. See the source of this document (available \href{http://github.com/arvindsv/LaTeX.Stuff/blob/master/cheatsheet.tex}{here}) to truly understand this.
+\end{abstract}
+\thispagestyle{empty}
+\end{minipage}
+%_% TITLE
+
 \chapter{The Setup}
 
 \section{The headers}
 
-I use the memoir class here at 12pt default, with the option to work with much higher font sizes. The chapter style,
-bianchi, is described in the
+In this document, the \href{http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=memoir}{memoir} class is used at
+12pt default, with the option to work with much higher font sizes. The chapter style, bianchi, is described in the
 \href{ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/memoir/memman.pdf}{documentation for the memoir class}.
 
 The pagestyle is empty as I don't want any page numbers. The aliaspagestyle is sort of a hack so that even
@@ -80,6 +91,10 @@ The main font being used is \href{http://linuxlibertine.sourceforge.net/}{Linux 
 Mapping option is for in \autoref{fontspec-mapping}.
 
 \showpart{OTHERPACKAGES}
+
+\section{Title page}
+
+The title page is very plain, and it is typeset using: \showpart{TITLE}
 
 \chapter{More about fonts}
 
