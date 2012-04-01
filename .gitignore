@@ -1,2 +1,5 @@
 parts/
 *.swp
+*.aux
+*.out
+*.log
